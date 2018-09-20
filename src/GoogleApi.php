@@ -36,10 +36,10 @@ class GoogleApi
         $this->client->setRedirectUri(array_get($config, 'redirect_uri', ''));
         $this->client->setScopes(array_get($config, 'scopes', []));
         $this->client->setAccessType(array_get($config, 'access_type', 'online'));
-        $this->client->setApprovalPrompt(array_get($config, 'approval_prompt', 'auto'));
+        //$this->client->setApprovalPrompt(array_get($config, 'approval_prompt', 'auto'));
 
         // set developer key
-        $this->client->setDeveloperKey(array_get($config, 'developer_key', ''));
+        // $this->client->setDeveloperKey(array_get($config, 'developer_key', ''));
 
         // auth for service account
         if (array_get($config, 'service.enable', false)) {
@@ -63,12 +63,25 @@ class GoogleApi
 
         $this->client->setSubject($subject);
 
+        return $this;
+
     }
 
     public function setScopes(array $scopes)
     {
 
         $this->client->setScopes($scopes);
+
+        return $this;
+
+    }
+
+    public function setUseBatch(bool $state)
+    {
+
+        $this->client->setUseBatch($state);
+
+        return $this;
 
     }
 
