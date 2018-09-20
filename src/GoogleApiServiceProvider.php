@@ -2,7 +2,7 @@
 
 namespace Kiroushi\LaravelGoogleApi;
 
-use GoogleApi;
+use Kiroushi\LaravelGoogleApi\GoogleApi;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
 class GoogleApiServiceProvider extends BaseServiceProvider
