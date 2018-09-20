@@ -5,7 +5,7 @@ namespace Kiroushi\LaravelGoogleApi\Facades;
 use Illuminate\Support\Facades\Facade;
 use Kiroushi\LaravelGoogleApi\GoogleApi;
 
-class GoogleApi extends Facade
+class GoogleApiFacade extends Facade
 {
     
     /**

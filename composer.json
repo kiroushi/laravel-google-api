@@ -32,7 +32,7 @@
                 "Kiroushi\\LaravelGoogleApi\\GoogleApiServiceProvider"
             ],
             "aliases": {
-                "GoogleApi": "Kiroushi\\LaravelGoogleApi\\Facades\\GoogleApi"
+                "GoogleApi": "Kiroushi\\LaravelGoogleApi\\Facades\\GoogleApiFacade"
             }
         }
     },
