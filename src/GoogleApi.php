@@ -57,6 +57,21 @@ class GoogleApi
         return $this->client;
     }
     
+
+    public function impersonate(string $subject)
+    {
+
+        $this->client->setSubject($subject);
+
+    }
+
+    public function setScopes(array $scopes)
+    {
+
+        $this->client->setScopes($scopes);
+
+    }
+
     /**
      * Setter for the google client.
      *
@@ -80,7 +95,7 @@ class GoogleApi
      *
      * @return \Google_Service
      */
-    public function make($service)
+    public function getService($service)
     {
         $service = 'Google_Service_'.ucfirst($service);
 
