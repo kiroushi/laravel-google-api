@@ -35,8 +35,8 @@ class GoogleApiServiceProvider extends BaseServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'google-api');
 
-        $this->app->singleton(GoogleApi::class, function ($app) {
-            return new GoogleApi($app['config']['google-api']);
+        $this->app->bind(GoogleApi::class, function ($app) {
+            return new GoogleApi;
         });
     }
 
@@ -49,5 +49,4 @@ class GoogleApiServiceProvider extends BaseServiceProvider
     {
         return [GoogleApi::class];
     }
-
 }

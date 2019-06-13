@@ -17,33 +17,34 @@ class GoogleApi
     protected $client;
 
     /**
-     * @param array $config
+     * @param array $this->config
      * @param string $userEmail
      */
-    public function __construct(array $config, $userEmail = '')
+    public function __construct()
     {
-        $this->config = $config;
+        
+        $this->config = config('google-api');
 
         // create an instance of the google client for OAuth2
-        $this->client = new Google_Client(array_get($config, 'config', []));
+        $this->client = new Google_Client(array_get($this->config, 'config', []));
 
         // set application name
-        $this->client->setApplicationName(array_get($config, 'application_name', ''));
+        $this->client->setApplicationName(array_get($this->config, 'application_name', ''));
 
         // set oauth2 configs
-        $this->client->setClientId(array_get($config, 'client_id', ''));
-        $this->client->setClientSecret(array_get($config, 'client_secret', ''));
-        $this->client->setRedirectUri(array_get($config, 'redirect_uri', ''));
-        $this->client->setScopes(array_get($config, 'scopes', []));
-        $this->client->setAccessType(array_get($config, 'access_type', 'online'));
-        //$this->client->setApprovalPrompt(array_get($config, 'approval_prompt', 'auto'));
+        $this->client->setClientId(array_get($this->config, 'client_id', ''));
+        $this->client->setClientSecret(array_get($this->config, 'client_secret', ''));
+        $this->client->setRedirectUri(array_get($this->config, 'redirect_uri', ''));
+        $this->client->setScopes(array_get($this->config, 'scopes', []));
+        $this->client->setAccessType(array_get($this->config, 'access_type', 'online'));
+        //$this->client->setApprovalPrompt(array_get($this->config, 'approval_prompt', 'auto'));
 
         // set developer key
-        // $this->client->setDeveloperKey(array_get($config, 'developer_key', ''));
+        // $this->client->setDeveloperKey(array_get($this->config, 'developer_key', ''));
 
         // auth for service account
-        if (array_get($config, 'service.enable', false)) {
-            $this->auth($userEmail);
+        if (array_get($this->config, 'service.enable', false)) {
+            $this->auth('');
         }
     }
 
